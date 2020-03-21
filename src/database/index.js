@@ -3,6 +3,7 @@ const dbConfig = require('../config/database');
 
 const User = require('../models/User');
 const Address = require('../models/Address');
+const Tech = require('../models/Tech');
 
 
 const connection = new Sequelize(dbConfig);
@@ -11,9 +12,11 @@ const connection = new Sequelize(dbConfig);
 // Inicializa os models com a conexão.
 User.init(connection);
 Address.init(connection);
+Tech.init(connection);
 
 // Faz as associações dos models.
 Address.associate(connection.models);
 User.associate(connection.models);
+Tech.associate(connection.models);
 
 module.exports = connection;
